@@ -5,9 +5,9 @@ account: marcelomedre87
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2427197
-bundleId: 3299295
+bundleId: 3299334
 url: https://marcelomedre87.shinyapps.io/Covid_Br/
-when: 1592770078.16507
+when: 1592770970.91114
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: .RData|dados-ac.csv|HIST_PAINEL_COVIDBR_17jun2020.xlsx|rteet_sentimental_analysis.R
+ignoredFiles: .RData

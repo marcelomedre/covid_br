@@ -148,7 +148,8 @@ body <- dashboardBody(
         tabItems(
                 tabItem(tabName = "dashboard",
                         fluidRow(
-                        imageOutput("Covid19"),
+                        tags$img(div(img(src = "1_o71LSwXo9Xoz5af5oZ23-A.png", width = 1200, height = 600))),
+                        br(),
                         h5(verbatimTextOutput("foo")),
                         valueBoxOutput("box1", width = 6),
                         valueBoxOutput("box2", width = 6),
@@ -379,12 +380,6 @@ ui <- dashboardPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
         
-        output$Covid19 <- renderImage({
-                # A temp file to save the output.
-                # This file will be removed later by renderImage
-                # Generate the PNG
-                png("1_o71LSwXo9Xoz5af5oZ23-A.png", width = 1200, height = 600)
-        })
         #creating the valueBoxOutput content
         output$box1 <- renderValueBox({
                 valueBox(
@@ -782,8 +777,7 @@ server <- function(input, output) {
                         group_by(date) %>%
                         summarise(n = sum(last_available_deaths))
                 ggplot(st_ob_choice, aes(x = date, y = n))+
-                        geom_point(col = "blue", size = 2) +
-                        geom_line(col = "blue", size = 1) +
+                        geom_line(col = "red", size = 2) +
                         xlab("Data da Notificação")+
                         ylab("Número de Casos Acumulados")+
                         scale_x_date(breaks = pretty_breaks(7))+
@@ -936,8 +930,7 @@ server <- function(input, output) {
                                 arrange(desc(date))
                         
                         ggplot(cit_choice, aes(x = date, y = n))+
-                                geom_point(col = "blue", size = 2) +
-                                geom_line(col = "blue", size = 1) +
+                                geom_line(col = "blue", size = 2) +
                                 xlab("Data da Notificação")+
                                 ylab("Número de Casos Acumulados")+
                                 scale_x_date(breaks = pretty_breaks(7))+
@@ -976,8 +969,7 @@ server <- function(input, output) {
                                 summarise(n = sum(last_available_deaths)) %>%
                                 arrange(desc(date))
                         ggplot(cit_obt_choice, aes(x = date, y = n))+
-                                geom_point(col = "blue", size = 2) +
-                                geom_line(col = "blue", size = 1) +
+                                geom_line(col = "red", size = 2) +
                                 xlab("Data da Notificação")+
                                 ylab("Número de Casos Acumulados")+
                                 scale_x_date(breaks = pretty_breaks(7))+
